@@ -1,31 +1,42 @@
+<!DOCTYPE html>
 <html>
 
-    
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Bulma!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+    <section class="section">
+        <div class="container">
+            <progress class="progress is-danger" id="progress_bar" value="0" max="100">0%</progress>
+            <button class="button" type="button" id="button">Connect to device</button>
 
 
-    <body>
-        
-        <progress id="progress_bar" max="100" value="0"> 0/100 </progress>
-        <button type="button" id="button">Connect to device</button>
+            <table class="table" id="channel_table">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Name</th>
+                        <th>Frequency</th>
+                        <th>Modulation</th>
+                        <th>CTCSS</th>
+                        <th>Delay</th>
+                        <th>Lockout</th>
+                        <th>Priority</th>
+                    </tr>
+                </thead>
+            </table>
 
-
-        <table style="width:100%" id="channel_table">
-            <tr>
-              <th>Index</th>
-              <th>Name</th>
-              <th>Frequency</th>
-              <th>Modulation</th>
-              <th>CTCSS</th>
-              <th>Delay</th>
-              <th>Lockout</th>
-              <th>Priority</th>
-            </tr>
-          </table>
-
-        <p id="log"></p>
-    </body>
+            <p id="log"></p>
+        </div>
+    </section>
 
     <script src="serial.js"></script>
     <script src="main.js"></script>
+</body>
 
 </html>

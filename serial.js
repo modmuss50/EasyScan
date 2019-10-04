@@ -21,6 +21,8 @@ async function connect(connectionCallback) {
             writer = sp.writable;
 
             connectionCallback();
+        }).catch(async (err) => {
+            alert(err);
         })
     })
 
@@ -28,12 +30,13 @@ async function connect(connectionCallback) {
 
 /* Sends a message, along with the return char and then returns the output */
 async function sendMessage(message) {
+    reader = rPort.readable.getReader();
     const newWriter = writer.getWriter();
     newWriter.write(str2ab(message + "\r"));
     newWriter.releaseLock()
 
 
-    reader = rPort.readable.getReader();
+    
     var response = await readLine(reader)
     while(!response.includes("\r")){
         response = response + await readLine(reader)
